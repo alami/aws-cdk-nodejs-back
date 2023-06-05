@@ -1,0 +1,585 @@
+{
+  "version": "15.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "MyJSCCStaticWebsite": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "MyJSCCStaticWebsite.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/MyJSCCStaticWebsite": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68.zip",
+              "id": "e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68",
+              "packaging": "file",
+              "sourceHash": "e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68",
+              "s3BucketParameter": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68S3BucketAEADE8C7",
+              "s3KeyParameter": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68S3VersionKeyE415415F",
+              "artifactHashParameter": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68ArtifactHashD9A515C3"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\construct-compat.js:416:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:180:29)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "AssetCode.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:269:26)",
+              "new LayerVersion (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\layers.js:60:33)",
+              "new AwsCliLayer (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\lambda-layer-awscli\\lib\\awscli-layer.js:20:9)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:74:22)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8",
+              "id": "a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8",
+              "packaging": "zip",
+              "sourceHash": "a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8",
+              "s3BucketParameter": "AssetParametersa3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8S3BucketD1AD544E",
+              "s3KeyParameter": "AssetParametersa3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8S3VersionKey93A19D70",
+              "artifactHashParameter": "AssetParametersa3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8ArtifactHash238275D6"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\construct-compat.js:416:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:180:29)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "AssetCode.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:269:26)",
+              "new Function (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:100:33)",
+              "SingletonFunction.ensureLambda (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:153:16)",
+              "new SingletonFunction (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:28:36)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:71:25)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fff",
+              "id": "48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fff",
+              "packaging": "zip",
+              "sourceHash": "48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fff",
+              "s3BucketParameter": "AssetParameters48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fffS3Bucket28015B6D",
+              "s3KeyParameter": "AssetParameters48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fffS3VersionKey4592E817",
+              "artifactHashParameter": "AssetParameters48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fffArtifactHash129215DF"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\construct-compat.js:416:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:180:29)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "Object.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\source.js:59:31)",
+              "C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:62",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:39)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/JSCCStaticWebsite/JSCC-OAI/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "JSCCStaticWebsiteJSCCOAI6D1DD7A4",
+            "trace": [
+              "new OriginAccessIdentity (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-cloudfront\\lib\\origin-access-identity.js:42:25)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:13:31)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/JSCCStaticWebsite/JSCCStaticBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "JSCCStaticWebsiteJSCCStaticBucket81DADFF5",
+            "trace": [
+              "new Bucket (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3\\lib\\bucket.js:595:26)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:14:28)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/JSCCStaticWebsite/JSCCStaticBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "JSCCStaticWebsiteJSCCStaticBucketPolicy2E2CDB45",
+            "trace": [
+              "new BucketPolicy (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3\\lib\\bucket-policy.js:34:25)",
+              "Bucket.addToResourcePolicy (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3\\lib\\bucket.js:153:27)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:20:20)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/JSCCStaticWebsite/JSCC-distribution/CFDistribution": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "JSCCStaticWebsiteJSCCdistributionCFDistribution893FD123",
+            "trace": [
+              "new CloudFrontWebDistribution (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-cloudfront\\lib\\web-distribution.js:300:30)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:25:30)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/JSCCStaticWebsite/JSCC-Bucket-Deployment/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "JSCCStaticWebsiteJSCCBucketDeploymentAwsCliLayerC935F6C8",
+            "trace": [
+              "new LayerVersion (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\layers.js:67:26)",
+              "new AwsCliLayer (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\lambda-layer-awscli\\lib\\awscli-layer.js:20:9)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:74:22)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/JSCCStaticWebsite/JSCC-Bucket-Deployment/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "JSCCStaticWebsiteJSCCBucketDeploymentCustomResource77507A35",
+            "trace": [
+              "new CustomResource (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\custom-resource.js:32:25)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:101:9)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68S3BucketAEADE8C7",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "AssetCode.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:269:26)",
+              "new LayerVersion (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\layers.js:60:33)",
+              "new AwsCliLayer (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\lambda-layer-awscli\\lib\\awscli-layer.js:20:9)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:74:22)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68S3VersionKeyE415415F",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "AssetCode.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:269:26)",
+              "new LayerVersion (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\layers.js:60:33)",
+              "new AwsCliLayer (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\lambda-layer-awscli\\lib\\awscli-layer.js:20:9)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:74:22)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/e9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse9882ab123687399f934da0d45effe675ecc8ce13b40cb946f3e1d6141fe8d68ArtifactHashD9A515C3",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "AssetCode.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:269:26)",
+              "new LayerVersion (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\layers.js:60:33)",
+              "new AwsCliLayer (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\lambda-layer-awscli\\lib\\awscli-layer.js:20:9)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:74:22)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersa3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8S3BucketD1AD544E",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "AssetCode.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:269:26)",
+              "new Function (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:100:33)",
+              "SingletonFunction.ensureLambda (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:153:16)",
+              "new SingletonFunction (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:28:36)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:71:25)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersa3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8S3VersionKey93A19D70",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "AssetCode.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:269:26)",
+              "new Function (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:100:33)",
+              "SingletonFunction.ensureLambda (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:153:16)",
+              "new SingletonFunction (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:28:36)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:71:25)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/a3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersa3058ccb468d757ebb89df5363a1c20f5307c6911136f29d00e1a68c9b2aa7e8ArtifactHash238275D6",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "AssetCode.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:269:26)",
+              "new Function (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:100:33)",
+              "SingletonFunction.ensureLambda (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:153:16)",
+              "new SingletonFunction (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:28:36)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:71:25)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fff/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fffS3Bucket28015B6D",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "Object.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\source.js:59:31)",
+              "C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:62",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:39)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fff/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fffS3VersionKey4592E817",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "Object.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\source.js:59:31)",
+              "C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:62",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:39)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/AssetParameters/48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fff/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters48d647e7c2349e881c109f54a2577646369067530a8cb0571001780073dc1fffArtifactHash129215DF",
+            "trace": [
+              "new FileAssetParameters (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:90:43)",
+              "new Asset (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:44:44)",
+              "Object.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\source.js:59:31)",
+              "C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:62",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:39)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
+            "trace": [
+              "new Role (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.js:74:22)",
+              "new Function (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:82:35)",
+              "SingletonFunction.ensureLambda (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:153:16)",
+              "new SingletonFunction (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:28:36)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:71:25)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+            "trace": [
+              "new Policy (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-iam\\lib\\policy.js:58:26)",
+              "Role.addToPrincipalPolicy (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.js:213:34)",
+              "Grant.addToPrincipal (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-iam\\lib\\grant.js:93:65)",
+              "Grant.addToPrincipalOrResource (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-iam\\lib\\grant.js:47:30)",
+              "Import.grant (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3\\lib\\bucket.js:449:31)",
+              "Import.grantRead (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3\\lib\\bucket.js:259:21)",
+              "Asset.grantRead (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.js:99:21)",
+              "Object.bind (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\source.js:66:23)",
+              "C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:62",
+              "Array.map (<anonymous>)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:92:39)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
+            "trace": [
+              "new Function (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:145:26)",
+              "SingletonFunction.ensureLambda (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:153:16)",
+              "new SingletonFunction (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-lambda\\lib\\singleton-lambda.js:28:36)",
+              "new BucketDeployment (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\aws-s3-deployment\\lib\\bucket-deployment.js:71:25)",
+              "new StaticSite (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\static-site.js:36:9)",
+              "new MyStaticSiteStack (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:9:9)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:13:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:22:30)",
+              "C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
+              "visit (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
+              "visit (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
+              "injectMetadataResources (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
+              "Object.synthesize (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
+              "App.synth (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stage.js:103:41)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:14:5)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ],
+        "/MyJSCCStaticWebsite/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:30:35)",
+              "C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
+              "visit (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
+              "visit (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
+              "injectMetadataResources (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
+              "Object.synthesize (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
+              "App.synth (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\node_modules\\@aws-cdk\\core\\lib\\stage.js:103:41)",
+              "Object.<anonymous> (C:\\Users\\user\\Downloads\\work5\\nodejs-aws-cdk-starter\\index.js:14:5)",
+              "Module._compile (node:internal/modules/cjs/loader:1254:14)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1308:10)",
+              "Module.load (node:internal/modules/cjs/loader:1117:32)",
+              "Module._load (node:internal/modules/cjs/loader:958:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:23:47"
+            ]
+          }
+        ]
+      },
+      "displayName": "MyJSCCStaticWebsite"
+    }
+  }
+}
