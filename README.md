@@ -19,6 +19,7 @@ Stock model:
 Write a script to fill tables with test examples. Store it in your Github repository. Execute it for your DB to fill data.
 
 [task4.1products.bat](task4.1products.bat)
+[task4.1stocks.bat](task4.1stocks.bat)
 
 **Task 4.2**
 
