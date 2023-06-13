@@ -1,73 +1,75 @@
-**Task 4 (Integration with NoSQL Database)**
+**Task 4 (Integration with NoSQL Database)
 
-<b>Task 4.1</b>
-Via AWS Console create 2 database tables in DynamoDB.
-**products:**
+**Task 4.1**
+
+    Use AWS Console to create two database tables in DynamoDB. Expected schemas for products and stocks:
+
+Product model:
+
 * id -  uuid (Primary key)
 * title - text, not null
 * description - text
 * price - integer
 
-**stocks:**
+Stock model:
+
 * product_id - uuid (Foreign key from products.id)
 * count - integer (Total number of products in stock, can't be exceeded)
 
-Write a script to fill tables with test examples.
-Store it in your Github repository.
-Execute it for your DB to fill data.
+Write a script to fill tables with test examples. Store it in your Github repository. Execute it for your DB to fill data.
+
+[task4.1products.bat](task4.1products.bat)
 
 **Task 4.2**
 
-1) Extend your AWS CDK Stack with data about your database table
-   and pass it to lambda’s environment variables section.
-2) Integrate the **getProductsList** lambda to return via
-   **GET /products** request a list of products from the database
-   (joined stocks and products tables).
-3) Implement a Product model on FE side as a joined model of product and stock by productId.
-4) Integrate the **getProductsById** lambda to return via **GET /products/{productId}** request a single product from the database.
+Extend your AWS CDK Stack with data about your database table and pass it to lambda’s environment variables section.
+Integrate the getProductsList lambda to return via GET /products request a list of products from the database (joined stocks and products tables).
+Implement a Product model on FE side as a joined model of product and stock by productId. For example:
 
-For example: **BE: Separate tables in DynamoDB**
+**BE: Separate tables in DynamoDB**
 
 Stock model example in DB:
-* {
-* product_id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4',
-* count: 2
-* }
+{
+product_id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4',
+count: 2
+}
 
-Product model example in DB:
-* {
-* id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4'
-* title: 'Product Title',
-* description: 'This product ...',
-* price: 200
-* }
+**Product model example in DB:**
+{
+id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4'
+title: 'Product Title',
+description: 'This product ...',
+price: 200
+}
 
-**FE: One product model as a result of BE models join (product and it's stock)**
+FE: One product model as a result of BE models join (product and it's stock)
 
 Product model example on Frontend side:
-* {
-* id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4',
-* count: 2
-* price: 200,
-* title: ‘Product Title’,
-* description: ‘This product ...’
-* }
+{
+id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4',
+count: 2
+price: 200,
+title: ‘Product Title’,
+description: ‘This product ...’
+}
 
 NOTE: This setup means User cannot buy more than product.count (no more items in stock) - but this is future functionality on FE side.
 
+Integrate the getProductsById lambda to return via GET /products/{productId} request a single product from the database.
+
 **Task 4.3**
 
-1. Create a lambda function called **createProduct** under the Product Service which will be triggered by the HTTP POST method.
-2. The requested URL should be **/products**.
-3. Implement its logic so it will be creating a new item in a Products table.
-4. Save the URL (API Gateway URL) to execute the implemented lambda functions for later - you'll need to provide it in the PR (e.g in PR's description) when submitting the task.
+* Create a lambda function called createProduct under the Product Service which will be triggered by the HTTP POST method.
+* The requested URL should be /products.
+* Implement its logic so it will be creating a new item in a Products table.
+* Save the URL (API Gateway URL) to execute the implemented lambda functions for later - you'll need to provide it in the PR (e.g in PR's description) when submitting the task.
 
 **Task 4.4**
 
-1. Commit all your work to separate branch (e.g. task-4 from the latest master) in BE (backend) and if needed in FE (frontend) repositories.
-2. Create a pull request to the master branch.
-3. Submit link to the pull request to Crosscheck page in RS App.
-
+* Commit all your work to separate branch (e.g. task-4 from the latest master) in BE (backend) and if needed in FE (frontend) repositories.
+* Create a pull request to the master branch.
+* Submit link to the pull request to Crosscheck page in RS App.
+<hr>
 **Evaluation criteria (70 points for covering all criteria)**
 
 Reviewers should verify the lambda functions by invoking them through provided URLs.
@@ -76,6 +78,7 @@ Reviewers should verify the lambda functions by invoking them through provided U
 * Task 4.2 is implemented lambda links are provided and returns data
 * Task 4.3 is implemented lambda links are provided and products is stored in DB (call Task 4.2 to see the product)
 * Your own Frontend application is integrated with Product Service (/products API) and products from Product Service are represented on Frontend. Link to a working Frontend application is provided for cross-check reviewer.
+<hr>
 
 **Additional (optional) tasks**
 
@@ -89,12 +92,14 @@ Reviewers should verify the lambda functions by invoking them through provided U
 
 The following should be present in PR's description field:
 
-1. What was done?
+    What was done?
 
-        Example:
-        Service is done, but FE is not working...
-        Additional scope - logger, swagger, unit tests, transaction
+    Example:
 
-2. Link to Product Service API - .....
-3. Link to FE PR (YOUR OWN REPOSITORY) - ...
-3. In case SWAGGER file is not provided - please provide product schema in PR description
+Service is done, but FE is not working...
+
+Additional scope - logger, swagger, unit tests, transaction
+
+    Link to Product Service API - .....
+    Link to FE PR (YOUR OWN REPOSITORY) - ...
+    In case SWAGGER file is not provided - please provide product schema in PR description
