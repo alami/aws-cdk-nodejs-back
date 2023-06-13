@@ -19,7 +19,8 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "experimentalDecorators": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "outDir": "./build",                                   /* Specify an output folder for all emitted files. */
   },
   "include": [
     "./*.ts"

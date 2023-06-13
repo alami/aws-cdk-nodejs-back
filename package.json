@@ -2,12 +2,15 @@
   "name": "nodejs-aws-cdk-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
     "watch": "tsc -w",
     "cdk": "cdk",
-    "synth": "cdk synth"
+    "synth": "cdk synth",
+    "dev": "nodemon --spawn --ignore 'sessions/'  src/productadd.ts",
+    "prod": "node build/index.js",
+    "prodadd": "node build/productadd.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,10 @@
   },
   "devDependencies": {
     "@types/node": "^10.17.0",
+    "@types/uuid": "^9.0.2",
     "aws-cdk": "^1.202.0",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
     "typescript": "^3.8"
   },
   "dependencies": {
@@ -28,7 +34,8 @@
     "@aws-cdk/aws-iam": "^1.94.1",
     "@aws-cdk/aws-s3": "^1.94.1",
     "@aws-cdk/aws-s3-deployment": "^1.94.1",
-    "@aws-cdk/core": "^1.94.1"
+    "@aws-cdk/core": "^1.94.1",
+    "uuid": "^9.0.0"
   },
   "homepage": "https://github.com/EPAM-JS-Competency-center/nodejs-aws-cdk-starter#readme"
 }
