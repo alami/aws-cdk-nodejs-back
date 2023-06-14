@@ -19,9 +19,14 @@ Stock model:
 Write a script to fill tables with test examples. Store it in your Github repository. Execute it for your DB to fill data.
 
 [task4.1products.bat](task4.1products.bat)
+
 [task4.1stocks.bat](task4.1stocks.bat)
 
 **Task 4.2**
+
+https://zh9bopl73g.execute-api.us-east-1.amazonaws.com/products
+
+https://o7jsaoxz1c.execute-api.us-east-1.amazonaws.com/products-id
 
 Extend your AWS CDK Stack with data about your database table and pass it to lambda’s environment variables section.
 Integrate the getProductsList lambda to return via GET /products request a list of products from the database (joined stocks and products tables).
@@ -64,6 +69,10 @@ Integrate the getProductsById lambda to return via GET /products/{productId} req
 * The requested URL should be /products.
 * Implement its logic so it will be creating a new item in a Products table.
 * Save the URL (API Gateway URL) to execute the implemented lambda functions for later - you'll need to provide it in the PR (e.g in PR's description) when submitting the task.
+
+https://zh9bopl73g.execute-api.us-east-1.amazonaws.com/products
+
+https://o7jsaoxz1c.execute-api.us-east-1.amazonaws.com/products-id
 
 **Task 4.4**
 
