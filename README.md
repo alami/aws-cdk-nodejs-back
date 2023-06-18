@@ -1,115 +1,101 @@
-**Task 4 (Integration with NoSQL Database)
+# Task 5 (Integration with S3)
 
-**Task 4.1**
+## Prerequisites
 
-    Use AWS Console to create two database tables in DynamoDB. Expected schemas for products and stocks:
+---
 
-Product model:
+- The task is a continuation of Homework 4 and should be done in the same repos
+- **(for JS only)** Install the latest version of [AWS SDK](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html)
+- **(for JS only)** Install the [CSV parser package](https://www.npmjs.com/package/csv-parser)
 
-* id -  uuid (Primary key)
-* title - text, not null
-* description - text
-* price - integer
+## Architecture
 
-Stock model:
+Find the entire program architecture: [here](../Architecture.pdf).
 
-* product_id - uuid (Foreign key from products.id)
-* count - integer (Total number of products in stock, can't be exceeded)
+<details>
+  <summary>Task Focus</summary>
 
-Write a script to fill tables with test examples. Store it in your Github repository. Execute it for your DB to fill data.
+The following image provides more info about task focus.
 
-[task4.1products.bat](task4.1products.bat)
+  <img src="./module_focus.png" />
 
-[task4.1stocks.bat](task4.1stocks.bat)
+</details>
 
-**Task 4.2**
+## Tasks
 
-https://zh9bopl73g.execute-api.us-east-1.amazonaws.com/products
+---
 
-https://o7jsaoxz1c.execute-api.us-east-1.amazonaws.com/products-id
+### Task 5.1
 
-Extend your AWS CDK Stack with data about your database table and pass it to lambda’s environment variables section.
-Integrate the getProductsList lambda to return via GET /products request a list of products from the database (joined stocks and products tables).
-Implement a Product model on FE side as a joined model of product and stock by productId. For example:
+1. Create a new service called `import-service` at the same level as Product Service with a its own AWS CDK Stack. The backend project structure should look like this:
 
-**BE: Separate tables in DynamoDB**
+```
+   backend-repository
+      product-service
+      import-service
+```
 
-Stock model example in DB:
-{
-product_id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4',
-count: 2
-}
+2. In the AWS Console **create** and **configure** a new S3 bucket with a folder called `uploaded`.
 
-**Product model example in DB:**
-{
-id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4'
-title: 'Product Title',
-description: 'This product ...',
-price: 200
-}
+### Task 5.2
 
-FE: One product model as a result of BE models join (product and it's stock)
+1. Create a lambda function called `importProductsFile` under the Import Service which will be triggered by the HTTP GET method.
+2. The requested URL should be `/import`.
+3. Implement its logic so it will be expecting a request with a name of CSV file with products and creating a new **Signed URL** with the following key: `uploaded/${fileName}`.
+4. The name will be passed in a _query string_ as a `name` parameter and should be described in the AWS CDK Stack as a _request parameter_.
+5. Update AWS CDK Stack with policies to allow lambda functions to interact with S3.
+6. The response from the lambda should be the created **Signed URL**.
+7. The lambda endpoint should be integrated with the frontend by updating `import` property of the API paths configuration.
 
-Product model example on Frontend side:
-{
-id: '19ba3d6a-f8ed-491b-a192-0a33b71b38c4',
-count: 2
-price: 200,
-title: ‘Product Title’,
-description: ‘This product ...’
-}
+### Task 5.3
 
-NOTE: This setup means User cannot buy more than product.count (no more items in stock) - but this is future functionality on FE side.
+1. Create a lambda function called `importFileParser` under he Import Service which will be triggered by an S3 event.
+2. The event should be `s3:ObjectCreated:*`
+3. Configure the event to be fired only by changes in the `uploaded` folder in S3.
+4. The lambda function should use a _readable stream_ to get an object from S3, parse it using `csv-parser` package and log each record to be shown in CloudWatch.
 
-Integrate the getProductsById lambda to return via GET /products/{productId} request a single product from the database.
+### Task 5.4
 
-**Task 4.3**
+1. Commit all your work to separate branch (e.g. `task-5` from the latest `master`) in your own repository.
+2. Create a pull request to the `master` branch.
+3. Submit link to the pull request to Crosscheck page in [RS App](https://app.rs.school).
 
-* Create a lambda function called createProduct under the Product Service which will be triggered by the HTTP POST method.
-* The requested URL should be /products.
-* Implement its logic so it will be creating a new item in a Products table.
-* Save the URL (API Gateway URL) to execute the implemented lambda functions for later - you'll need to provide it in the PR (e.g in PR's description) when submitting the task.
+## Evaluation criteria (70 points for covering all criteria)
 
-https://zh9bopl73g.execute-api.us-east-1.amazonaws.com/products
-
-https://o7jsaoxz1c.execute-api.us-east-1.amazonaws.com/products-id
-
-**Task 4.4**
-
-* Commit all your work to separate branch (e.g. task-4 from the latest master) in BE (backend) and if needed in FE (frontend) repositories.
-* Create a pull request to the master branch.
-* Submit link to the pull request to Crosscheck page in RS App.
-<hr>
-**Evaluation criteria (70 points for covering all criteria)**
+---
 
 Reviewers should verify the lambda functions by invoking them through provided URLs.
 
-* Task 4.1 is implemented
-* Task 4.2 is implemented lambda links are provided and returns data
-* Task 4.3 is implemented lambda links are provided and products is stored in DB (call Task 4.2 to see the product)
-* Your own Frontend application is integrated with Product Service (/products API) and products from Product Service are represented on Frontend. Link to a working Frontend application is provided for cross-check reviewer.
-<hr>
+- AWS CDK Stack contains configuration for `importProductsFile` function
+- The `importProductsFile` lambda function returns a correct response which can be used to upload a file into the S3 bucket
+- Frontend application is integrated with `importProductsFile` lambda
+- The `importFileParser` lambda function is implemented and AWS CDK Stack contains configuration for the lambda
 
-**Additional (optional) tasks**
+## Additional (optional) tasks
 
-* +6 (All languages) - POST /products lambda functions returns error 400 status code if product data is invalid
-* +6 (All languages) - All lambdas return error 500 status code on any error (DB connection, any unhandled error in code)
-* +6 (All languages) - All lambdas do console.log for each incoming requests and their arguments
-* +6 (All languages) - Use RDS instance instead of DynamoDB tables. Do not commit your environment variables to github!
-* +6 (All languages) - Transaction based creation of product (in case stock creation is failed then related to this stock product is not created and not ready to be used by the end user and vice versa) (https://devcenter.kinvey.com/nodejs/tutorials/bl-transactional-support, https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html)
+---
 
-**Description Template for PRs**
+- **+15** **(All languages)** - `importProductsFile` lambda is covered by _unit tests_.
+  (for JS only) [aws-sdk-mock](https://www.npmjs.com/package/aws-sdk-mock) can be used to mock S3 methods
+- **+15** **(All languages)** - At the end of the stream the lambda function should move the file from the `uploaded` folder into the `parsed` folder (`move the file` means that file should be copied into a new folder in the same bucket called `parsed`, and then deleted from `uploaded` folder)
+
+## Description Template for PRs
+
+---
 
 The following should be present in PR's description field:
 
-    What was done?
+1. What was done?
 
-    Example:
+   Example:
 
-Service is done, but FE is not working...
+```
+   Service is done, but FE is not working...
 
-Additional scope - logger, swagger, unit tests, transaction
+   Additional scope - webpack, swagger, unit tests
+```
 
-    Link to Product Service API - .....
-    Link to FE PR (YOUR OWN REPOSITORY) - ...
-    In case SWAGGER file is not provided - please provide product schema in PR description
+2. Link to Import Service API - .....
+3. Link to FE PR (YOUR OWN REPOSITORY) - ...
+
+4. In case SWAGGER file is not provided - please provide product schema in PR description
