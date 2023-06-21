@@ -37,6 +37,8 @@ The following image provides more info about task focus.
 
 2. In the AWS Console **create** and **configure** a new S3 bucket with a folder called `uploaded`.
 
+http://alami-nodejs-aws-shop-react.s3-website-us-east-1.amazonaws.com/  - my static sait
+
 ### Task 5.2
 
 1. Create a lambda function called `importProductsFile` under the Import Service which will be triggered by the HTTP GET method.
