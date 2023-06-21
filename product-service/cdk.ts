@@ -5,7 +5,7 @@ import { Runtime } from 'aws-cdk-lib/aws-lambda'
 import * as apigatewayv2 from '@aws-cdk/aws-apigatewayv2-alpha'
 import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations-alpha'
 
-import { productsTableName, stocksTableName } from "../db";
+import { productsTableName, stocksTableName } from "./db";
 
 
 const prefix = process.env.PREFIX
@@ -35,6 +35,26 @@ const getProductsList = new NodejsFunction(
     }
 )
 
+const getProductById = new NodejsFunction(
+    stack,
+    `${prefix}-getProductById-lambda`,
+    {
+        ...sharedLambdaProps,
+        functionName: 'getProductById',
+        entry: 'src/handlers/getProductById.ts',
+    }
+)
+
+const createProduct = new NodejsFunction(
+    stack,
+    `${prefix}-createProduct-lambda`,
+    {
+        ...sharedLambdaProps,
+        functionName: 'createProduct',
+        entry: 'src/handlers/createProduct.ts',
+    }
+)
+
 const api = new apigatewayv2.HttpApi(stack, `${prefix}-api`, {
     corsPreflight: {
         allowHeaders: ['*'],
@@ -51,4 +71,23 @@ api.addRoutes({
     path: '/products',
     methods: [apigatewayv2.HttpMethod.GET],
 })
+
+api.addRoutes({
+    integration: new HttpLambdaIntegration(
+        `${prefix}-getProductById-lambda-integration`,
+        getProductById
+    ),
+    path: '/products/{productId}',
+    methods: [apigatewayv2.HttpMethod.GET],
+})
+
+api.addRoutes({
+    integration: new HttpLambdaIntegration(
+        `${prefix}-createProduct-lambda-integration`,
+        createProduct
+    ),
+    path: '/products',
+    methods: [apigatewayv2.HttpMethod.POST],
+})
+
 

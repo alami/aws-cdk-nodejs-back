@@ -1,9 +1,7 @@
 {
   "name": "aws-cdk-nodejs-be",
   "version": "0.1.0",
-  "bin": {
-    "aws-cdk-nodejs-be": "bin/aws-cdk-nodejs-be.js"
-  },
+  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",

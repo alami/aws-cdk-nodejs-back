@@ -1,8 +1,8 @@
 import * as AWS from 'aws-sdk'
 import { constants as httpConstants } from 'http2'
-import { createResponse } from './headers'
+import { createResponse } from '../../headers'
 
-AWS.config.update({ region: 'eu-west-1'})
+AWS.config.update({ region: process.env.PRODUCT_AWS_REGION })
 
 const dynamodb = new AWS.DynamoDB.DocumentClient()
 const getDynamodbItems = async (params: AWS.DynamoDB.DocumentClient.ScanInput) => {
