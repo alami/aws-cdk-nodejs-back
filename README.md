@@ -1,103 +1,79 @@
-# Task 5 (Integration with S3)
+# Task 6 SQS & SNS, Async Microservices Communication
+Goal
 
-## Prerequisites
+    Learn what async microservices communication is all about
+    Explore different async services like SNS, SQS, etc.
+    Set up an integration with AWS SNS and AWS SQS
 
----
+Topics
 
-- The task is a continuation of Homework 4 and should be done in the same repos
-- **(for JS only)** Install the latest version of [AWS SDK](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html)
-- **(for JS only)** Install the [CSV parser package](https://www.npmjs.com/package/csv-parser)
+    Async Messaging Overview
+    AWS SQS Overview
+    AWS SNS Overview
+    Integration with SQS, SNS and Lambda Overview
 
-## Architecture
+Prerequisites
 
-Find the entire program architecture: [here](../Architecture.pdf).
+    The task is a continuation of Homework 5 and should be done in the same repo
+    Task goal is to create a service to be able to save products which were provided in csv file in database.
 
-<details>
-  <summary>Task Focus</summary>
+Architecture
 
-The following image provides more info about task focus.
+Find the entire program architecture: here.
+Task Focus
+Tasks
+Task 6.1
 
-  <img src="./module_focus.png" />
+    Create a lambda function called catalogBatchProcess under the Product Service which will be triggered by an SQS event.
+    Create an SQS queue called catalogItemsQueue, in the AWS CDK Stack.
+    Configure the SQS to trigger lambda catalogBatchProcess with 5 messages at once via batchSize property.
+    The lambda function should iterate over all SQS messages and create corresponding products in the products table.
 
-</details>
+Task 6.2
 
-## Tasks
+    Update the importFileParser lambda function in the Import Service to send each CSV record into SQS.
+    It should no longer log entries from the readable stream to CloudWatch.
 
----
+Task 6.3
 
-### Task 5.1
+    Create an SNS topic createProductTopic and email subscription in the AWS CDK Stack of the Product Service.
+    Create a subscription for this SNS topic with an email endpoint type with your own email in there.
+    Update the catalogBatchProcess lambda function in the Product Service to send an event to the SNS topic once it creates products.
 
-1. Create a new service called `import-service` at the same level as Product Service with a its own AWS CDK Stack. The backend project structure should look like this:
+Task 6.4
 
-```
-   backend-repository
-      product-service
-      import-service
-```
+    Commit all your work to separate branch (e.g. task-6 from the latest master) in your own repository.
+    Create a pull request to the master branch.
+    Submit link to the pull request to Crosscheck page in RS App.
 
-2. In the AWS Console **create** and **configure** a new S3 bucket with a folder called `uploaded`.
+Evaluation criteria (70 points for covering all criteria)
 
-http://alami-nodejs-aws-shop-react.s3-website-us-east-1.amazonaws.com/  - my static sait
+Reviewers should verify the lambda functions, SQS and SNS topic and subscription in PR.
 
-### Task 5.2
+    AWS CDK Stack contains configuration for catalogBatchProcess function
+    AWS CDK Stack contains policies to allow lambda catalogBatchProcess function to interact with SNS and SQS
+    AWS CDK Stack contains configuration for SQS catalogItemsQueue
+    AWS CDK Stack contains configuration for SNS Topic createProductTopic and email subscription
 
-1. Create a lambda function called `importProductsFile` under the Import Service which will be triggered by the HTTP GET method.
-2. The requested URL should be `/import`.
-3. Implement its logic so it will be expecting a request with a name of CSV file with products and creating a new **Signed URL** with the following key: `uploaded/${fileName}`.
-4. The name will be passed in a _query string_ as a `name` parameter and should be described in the AWS CDK Stack as a _request parameter_.
-5. Update AWS CDK Stack with policies to allow lambda functions to interact with S3.
-6. The response from the lambda should be the created **Signed URL**.
-7. The lambda endpoint should be integrated with the frontend by updating `import` property of the API paths configuration.
+Additional (optional) tasks
 
-### Task 5.3
+    +15 (All languages) - catalogBatchProcess lambda is covered by unit tests
+    +15 (All languages) - set a Filter Policy for SNS createProductTopic in AWS CDK Stack and create an additional email subscription to distribute messages to different emails depending on the filter for any product attribute
 
-1. Create a lambda function called `importFileParser` under he Import Service which will be triggered by an S3 event.
-2. The event should be `s3:ObjectCreated:*`
-3. Configure the event to be fired only by changes in the `uploaded` folder in S3.
-4. The lambda function should use a _readable stream_ to get an object from S3, parse it using `csv-parser` package and log each record to be shown in CloudWatch.
-
-### Task 5.4
-
-1. Commit all your work to separate branch (e.g. `task-5` from the latest `master`) in your own repository.
-2. Create a pull request to the `master` branch.
-3. Submit link to the pull request to Crosscheck page in [RS App](https://app.rs.school).
-
-## Evaluation criteria (70 points for covering all criteria)
-
----
-
-Reviewers should verify the lambda functions by invoking them through provided URLs.
-
-- AWS CDK Stack contains configuration for `importProductsFile` function
-- The `importProductsFile` lambda function returns a correct response which can be used to upload a file into the S3 bucket
-- Frontend application is integrated with `importProductsFile` lambda
-- The `importFileParser` lambda function is implemented and AWS CDK Stack contains configuration for the lambda
-
-## Additional (optional) tasks
-
----
-
-- **+15** **(All languages)** - `importProductsFile` lambda is covered by _unit tests_.
-  (for JS only) [aws-sdk-mock](https://www.npmjs.com/package/aws-sdk-mock) can be used to mock S3 methods
-- **+15** **(All languages)** - At the end of the stream the lambda function should move the file from the `uploaded` folder into the `parsed` folder (`move the file` means that file should be copied into a new folder in the same bucket called `parsed`, and then deleted from `uploaded` folder)
-
-## Description Template for PRs
-
----
+Description Template for PRs
 
 The following should be present in PR's description field:
 
-1. What was done?
+    What was done?
 
-   Example:
+    Example:
 
-```
-   Service is done, but FE is not working...
+Service is done, but FE is not working...
 
-   Additional scope - webpack, swagger, unit tests
-```
+Additional scope - webpack, swagger, unit tests
 
-2. Link to Import Service API - .....
-3. Link to FE PR (YOUR OWN REPOSITORY) - ...
+    Link to Product Service and Import Service APIs - .....
 
-4. In case SWAGGER file is not provided - please provide product schema in PR description
+    Link to FE PR (YOUR OWN REPOSITORY) - ...
+
+    In case SWAGGER file is not provided - please provide product schema in PR description
