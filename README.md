@@ -66,9 +66,9 @@ The following should be present in PR's description field:
 
     What was done?
 
-    Example:
+FE link: http://alami-nodejs-aws-shop-react.s3-website-us-east-1.amazonaws.com
 
-Service is done, but FE is not working...
+6.1 added catalogBatchProcess
 
 Additional scope - webpack, swagger, unit tests
 
