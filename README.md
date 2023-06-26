@@ -70,6 +70,12 @@ FE link: http://alami-nodejs-aws-shop-react.s3-website-us-east-1.amazonaws.com
 
 6.1 added catalogBatchProcess
 
+6.2 Update the importFileParser
+
+6.3 Update the catalogBatchProcess. Create an SNS topic createProductTopic and email subscription
+
+6.4 Commit etc
+
 Additional scope - webpack, swagger, unit tests
 
     Link to Product Service and Import Service APIs - .....
