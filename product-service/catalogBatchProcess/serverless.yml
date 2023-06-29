@@ -1,4 +1,4 @@
- service: alami-rs-node-js-sqs-sns
+ service: alami-node16-sqs-sns
  provider:
    name: aws
    runtime: nodejs16.x
@@ -24,23 +24,23 @@
      SQSQueue:
        Type: AWS::SQS::Queue
        Properties:
-         QueueName: alami-node-js-sqs-sns-queue
+         QueueName: alami-node16-catalogItemsQueue
      SNSTopic:
        Type: AWS::SNS::Topic
        Properties:
-         TopicName: alami-node-js-sqs-sns-queue
+         TopicName: alami-node16-createProductTopic
      SNSSubscription:
        Type: AWS::SNS::Subscription
        Properties:
-         Endpoint:  alami-node-js-sqs-sns-queue
+         Endpoint:  alami181@mail.ru
          Protocol: email
          TopicArn:
            Ref: SNSTopic
 
 
  functions:
-   usersSubmit:
-     handler: handler.usersSubmit
+   catalogBatchProcess:
+     handler: handler.catalogBatchProcess
      events:
        - http:
            path: users
