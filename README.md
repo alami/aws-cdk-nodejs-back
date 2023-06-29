@@ -29,6 +29,11 @@ Task 6.1
     Configure the SQS to trigger lambda catalogBatchProcess with 5 messages at once via batchSize property.
     The lambda function should iterate over all SQS messages and create corresponding products in the products table.
 
+    endpoint: https://nydefjtgh1.execute-api.us-east-1.amazonaws.com/dev/users
+    handler functions:
+        catalogBatchProcess: alami-node16-sqs-sns-dev-catalogBatchProcess (90 MB)
+        usersInvite: alami-node16-sqs-sns-dev-usersInvite (90 MB)
+
 Task 6.2
 
     Update the importFileParser lambda function in the Import Service to send each CSV record into SQS.
@@ -37,6 +42,7 @@ Task 6.2
 Task 6.3
 
     Create an SNS topic createProductTopic and email subscription in the AWS CDK Stack of the Product Service.
+        Topic name:  alami-node16-createProductTopic
     Create a subscription for this SNS topic with an email endpoint type with your own email in there.
     Update the catalogBatchProcess lambda function in the Product Service to send an event to the SNS topic once it creates products.
 
