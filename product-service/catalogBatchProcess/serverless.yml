@@ -7,7 +7,7 @@
      SQS_URL:
        Ref: SQSQueue
      SNS_URL:
-       Ref: SQSTopic
+       Ref: SNSTopic
 
    iamRoleStatements:
      - Effect: Allow
@@ -17,7 +17,7 @@
      - Effect: Allow
        Action: "sns:*"
        Resource:
-         Ref: SNSTopic
+         - Ref: SNSTopic
 
  resources:
    Resources:
