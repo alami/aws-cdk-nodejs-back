@@ -1,0 +1,56 @@
+[
+  {
+    "description": "Michael Jackson,1982,Pop",
+    "id": "b1ec2432-db75-4b2f-8081-8a81d6f31ee2",
+    "price": 200,
+    "title": "Thriller"
+  },
+  {
+    "description": "Led Zeppelin, 1969, Rock",
+    "id": "520bd67e-f21e-458f-9d07-5f141136e122",
+    "price": 300,
+    "title": "Led Zeppelin II"
+  },
+  {
+    "description": "Pink Floyd, 1979, Rock",
+    "id": "a93d2b44-a250-4233-974c-2269bec90b53",
+    "price": 20,
+    "title": "The Wall"
+  },
+  {
+    "description": "Nirvana, 1991, Alternative",
+    "id": "cfab478c-b53f-4e90-8548-e3f1702daa47",
+    "price": 100,
+    "title": "Nevermind"
+  },
+  {
+    "description": "Elton John 1973, Rock",
+    "id": "a8c92670-5558-4a81-b8a4-548dcf833b6d",
+    "price": 100,
+    "title": "Goodbye Yellow Brick Road"
+  },
+  {
+    "description": "Radiohead, 2000, Alternative",
+    "id": "d2f48a22-65c1-4e0e-a80b-9818b597d13a",
+    "price": 300,
+    "title": "Kid A"
+  },
+  {
+    "description": "Pink Floyd, 1973, Rock",
+    "id": "036deeda-04ea-4393-b91b-28d5699577d1",
+    "price": 200,
+    "title": "Dark Side of the Moon"
+  },
+  {
+    "description": "Bruce Springsteen, 1984, Rock",
+    "id": "e82afac3-6784-4743-9f48-a628ddb26e42",
+    "price": 200,
+    "title": "Born in the U.S.A."
+  },
+  {
+    "description": "Bob Dylan1966Rock",
+    "id": "9ccbab9b-c5c1-40fd-aa7a-cf5a5675eed0",
+    "price": 10,
+    "title": "Blonde on Blonde"
+  }
+]
