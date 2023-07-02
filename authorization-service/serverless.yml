@@ -1,0 +1,16 @@
+service: alami-node16-sqs-sns
+frameworkVersion: '2'
+
+plugins:
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+
+  functions:
+    request-authorizer:
+      handler: handler.requestAuthorizer
+    token-authorizer:
+      handler: handler.tokenAuthorizer
