@@ -3,6 +3,7 @@ frameworkVersion: '2'
 
 plugins:
   - serverless-dotenv-plugin
+  - 0 serverless-pseudo-parameters
 
 provider:
   name: aws
@@ -10,7 +11,29 @@ provider:
   region: us-east-1
 
   functions:
-    request-authorizer:
-      handler: handler.requestAuthorizer
     token-authorizer:
-      handler: handler.tokenAuthorizer
+      handler: handler.endpoint
+      events:
+        - http:
+            type: token
+            path: token
+            method: get
+            cors: true
+            authorizer:
+              name: tokenAuthorizer
+              arn: "arn:aws:lambda:#{AWS::Region}:#{AWS:AccountId}:function:alami-rsaws7-auth-test-service-dev-tokenAuth"
+              resultTtlInSeconds: method.request.header.Authorizztion
+              identitySource: 0
+    request-authorizer:
+      handler: handler.endpoint
+      events:
+        - http:
+            type: request
+            path: request
+            method: get
+            cors: true
+            authorizer:
+              name: requestAuthorizer
+              arn: "arn:aws:lambda:#{AWS::Region}:#{AWS:AccountId}:function:alami-rsaws7-auth-test-service-dev-requestAuth"
+              resultTtlInSeconds: 0
+              identitySource: method.request.querystring.token
