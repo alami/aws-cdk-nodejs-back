@@ -1,87 +1,104 @@
-## Task 7 (Authorization)
-Prerequisites
+## Task 8 (Integration with SQL Database)
 
-    The task is a continuation of Homework 6 and should be done in the same repo.
+### Task 8.1
 
-Architecture
+    Fork a copy of Cart Service template repository
+    Use the guide (https://docs.nestjs.com/faq/serverless) to wrap Nest.js application to AWS Lambda, but replace Serverless Framework with AWS CDK to create and deploy your lamda as you already did in task 3
+    Deploy your code to AWS Lambda
 
-Find the entire program architecture: here.
-Task Focus
-Tasks
-Task 7.1
+Actually, it's not recommended having routing inside AWS Lambda, since it can be done by other services such as API Gateway. But it's the easiest way to deploy application, and it's done only for educational approaches.
+### Task 8.2
 
-    Create a new service called authorization-service at the same level as Product and Import services with its own AWS CDK Stack. The backend project structure should look like this:
+Use AWS Console to create a database instance in RDS with PostgreSQL
+#### "alami-postgres-instance"
+and **"security group"**  with default rule **"Inbound group":  
+"All traffic" - "myIP"**
 
-backend-repository
-product-service
-import-service
-authorization-service
+Connect to database instance via a tool called **DataGrip**
+Create the following tables:
+<pre>
 
-    Create a lambda function called basicAuthorizer under the Authorization Service.
-    This lambda should have at least one environment variable with the following credentials:
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-{yours_github_account_login}=TEST_PASSWORD
+create type CART_STATUS AS ENUM ('OPEN', 'ORDERED');
+create table carts (
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id uuid DEFAULT uuid_generate_v4() not null,
+    created_at DATE NOT NULL,
+    updated_at DATE NOT NULL,
+    status CART_STATUS NOT NULL
+);
 
-    {yours_github_account_login} - your GitHub account name. Login for test user should be your GitHub account name
-    TEST_PASSWORD - password string. Password for test user must be "TEST_PASSWORD"
-    example: johndoe=TEST_PASSWORD
+create table cart_items (
+    product_id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    count integer,
+    cart_id UUID NOT NULL,
+    foreign key (cart_id) references carts (id)
+);
+</pre>
 
-    This basicAuthorizer lambda should take Basic Authorization token, decode it and check that credentials provided by token exist in the lambda environment variable.
-    This lambda should return 403 HTTP status if access is denied for this user (invalid authorization_token) and 401 HTTP status if Authorization header is not provided.
+SQL script to fill tables with test examples. 
+Store it in your Github repository. 
+Execute it for your DB to fill data.
+<pre>
+INSERT INTO carts (user_id, created_at, updated_at, status)
+VALUES
+(uuid_generate_v4(), '2023-07-10', '2023-07-10', 'OPEN'),
+(uuid_generate_v4(), '2023-07-11', '2023-07-11', 'ORDERED'),
+(uuid_generate_v4(), '2023-07-12', '2023-07-12', 'OPEN');
 
-NOTE: Do not send your credentials to the GitHub. Use .env file and dotenv package to add environment variables to the lambda. Add .env file to .gitignore file.
+INSERT INTO cart_items (product_id, count, cart_id)
+VALUES
+(uuid_generate_v4(), 2, (SELECT id FROM carts WHERE status='OPEN' LIMIT 1)),
+(uuid_generate_v4(), 1, (SELECT id FROM carts WHERE status='ORDERED' LIMIT 1)),
+(uuid_generate_v4(), 3, (SELECT id FROM carts WHERE created_at='2023-07-12' LIMIT 1));
+</pre>
+### Task 8.3
 
-.env file example:
-vasiapupkin=TEST_PASSWORD
+    Update source code in the application to use PostgreSQL instead of memory storage.
 
-Task 7.2
+    You can make integration by using Typeorm.
+    Or you can use a simpler library such as pg.
 
-    Add Lambda authorization to the /import path of the Import Service API Gateway.
-    Use your basicAuthorizer lambda as the Lambda authorizer
+    Integrate with RDS
+    Extend your AWS CDK Stack file with credentials to your database instance and pass it to lambda’s environment variables section.
 
-Task 7.3
+Task 8.4
 
-    Request from the client application to the /import path of the Import Service should have Basic Authorization header:
-
-Authorization: Basic {authorization_token}
-
-    {authorization_token} is a base64-encoded {yours_github_account_login}:TEST_PASSWORD
-    example: Authorization: Basic sGLzdRxvZmw0ZXs0UGFzcw==
-
-    Client should get authorization_token value from browser localStorage
-
-const authorization_token = localStorage.getItem('authorization_token')
-
-Task 7.4
-
-    Commit all your work to separate branch (e.g. task-7 from the latest master) in your own repository.
+    Commit all your work to separate branch (e.g. task-8 from the latest master) in your new repository.
     Create a pull request to the master branch.
     Submit link to the pull request to Crosscheck page in RS App.
 
 Evaluation criteria (70 points for covering all criteria)
 
-Provide your reviewers with the link to the repo, client application and URLs to execute the /import path of the Import Service`
+Reviewers should verify the lambda functions by invoking them through provided URLs.
 
-    authorization-service is added to the repo, has correct basicAuthorizer lambda and correct AWS CDK Stack
-    Import Service AWS CDK Stack has authorizer configuration for the importProductsFile lambda. Request to the importProductsFile lambda should work only with correct authorization_token being decoded and checked by basicAuthorizer lambda. Response should be in 403 HTTP status if access is denied for this user (invalid authorization_token) and in 401 HTTP status if Authorization header is not provided.
-    Client application is updated to send "Authorization: Basic authorization_token" header on import. Client should get authorization_token value from browser localStorage
+    Task 8.1 is implemented
+    Task 8.2 is implemented
+    Task 8.3 is implemented lambda links are provided and cart's data is stored in DB
 
 Additional (optional) tasks
 
-NOTE: Recommended for personal growth and further interviews, but this part would not be evaluated on cross-check.
+    +20 (All languages) - Create orders table and integrated with it Order model:
 
-    +30 - Client application should display alerts for the responses in 401 and 403 HTTP statuses. This behavior should be added to the nodejs-aws-fe-main/src/index.tsx file.
-    Just Practice, No Evaluation - Add Login page and protect getProductsList lambda by the Cognito Authorizer
-        Create Cognito User Pool using a demo from the lecture. Leave email in a list of standard required attributes. Checkbox Allow users to sign themselves up should be checked. Also, set email as an attribute that you want to verify.
-        Add App Client to the User Pool
-        In the App Client Settings section select all Identity Providers. Fill the Callback URL(s) field with your Client Application URL (i.e. http://localhost:3000/). Allow only Authorization code grant OAuth Flow. Allow all OAuth Scopes
-        Create Domain name
-        After all of these manipulations, you can open your Login Page by clicking on the Launch Hosted UI link in the App Client Settings
-        Provide this link to your reviewers. The reviewer can just confirm that everything works for him too.
-        Add Cognito authorizer to the getProductsList lambda. Use Authorization as a Token Source
-        How to make sure that everything works as expected:
-            Open Login Page and Sign Up a new user. Use a real email address to create this user
-            Verify user using code from the email
-            After verification and after every login you will be redirected to the Client application. URL should contain id_token which can be used to access the getProductsList lambda
-            Call getProductsList lambda using id_token as a value for the Authorization header
-        Remove authorization from the getProductsList after your task will be checked
+orders:
+id - uuid
+user_id - uuid
+cart_id - uuid (Foreign key from carts.id)
+payment - JSON
+delivery - JSON
+comments - text
+status - ENUM or text
+total - number
+
+Set status to 'ORDERED' after checkout instead of cart deletion.
+
+    +4 (All languages) - Create users table and integrate with it
+    +3 (All languages) - Transaction based creation of checkout
+    +3 (All languages) - Integrate Cart service with FE repository
+
+Penalties
+
+    -50 - Serverless Framework used to create and deploy infrastructure
+
+Description Template for PRs
