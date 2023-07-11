@@ -7,7 +7,7 @@ This Pull Request maked special for task 8.1
 #### Could you check it from this PR link
 
 1.	https://github.com/alami/nodejs-aws-cart-api.git forked from https://github.com/rolling-scopes-school/nodejs-aws-cart-api
-2.	Use the guide (https://docs.nestjs.com/faq/serverless) to wrap Nest.js application to AWS Lambda, but replace Serverless Framework with AWS CDK to create and deploy your lamda as you already did in task 3
+2.	**initialize [alami-lamda-integration-SQL](alami-lamda-integration-SQL)**
 3.	Deploy your code to AWS Lambda
 https://github.com/alami/nodejs-aws-cart-api/pull/1
 
