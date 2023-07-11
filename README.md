@@ -2,11 +2,15 @@
 
 ### Task 8.1
 
-    Fork a copy of Cart Service template repository
-    Use the guide (https://docs.nestjs.com/faq/serverless) to wrap Nest.js application to AWS Lambda, but replace Serverless Framework with AWS CDK to create and deploy your lamda as you already did in task 3
-    Deploy your code to AWS Lambda
+This Pull Request maked special for task 8.1
+### https://github.com/alami/nodejs-aws-cart-api/pull/1
+#### Could you check it from this PR link
 
-Actually, it's not recommended having routing inside AWS Lambda, since it can be done by other services such as API Gateway. But it's the easiest way to deploy application, and it's done only for educational approaches.
+1.	https://github.com/alami/nodejs-aws-cart-api.git forked from https://github.com/rolling-scopes-school/nodejs-aws-cart-api
+2.	Use the guide (https://docs.nestjs.com/faq/serverless) to wrap Nest.js application to AWS Lambda, but replace Serverless Framework with AWS CDK to create and deploy your lamda as you already did in task 3
+3.	Deploy your code to AWS Lambda
+https://github.com/alami/nodejs-aws-cart-api/pull/1
+
 ### Task 8.2
 
 Use AWS Console to create a database instance in RDS with PostgreSQL
