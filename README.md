@@ -1,11 +1,8 @@
 ## Task 8 (Integration with SQL Database)
-
 ### Task 8.1
-
 This Pull Request maked special for task 8.1
 ### https://github.com/alami/nodejs-aws-cart-api/pull/1
 #### Could you check it from this PR link
-
 1.	https://github.com/alami/nodejs-aws-cart-api.git forked from https://github.com/rolling-scopes-school/nodejs-aws-cart-api
 2.	**initialize [alami-lamda-integration-SQL](alami-lamda-integration-SQL)**
 3.	Deploy your code to AWS Lambda
