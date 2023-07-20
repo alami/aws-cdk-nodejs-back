@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQS lambda test</title>
+</head>
+<body>
+    <h2>Invite users</h2>
+    <form id="usersForm">
+        <div><input type="checkbox" name="users" value="alami181@mail.ru">John</div>
+        <div><input type="checkbox" name="users" value="a.aminov@unesco.org">Week</div>
+        <input type="submit" value="Send invitations">
+    </form>
+    <script>
+        const SERVICE_ENDPOINT = 'https://yamlq2rusb.execute-api.us-east-1.amazonaws.com/dev/users'
+        document.querySelector('#usersForm').addEventListener('submit',(event)=>{
+          event.preventDefault()
+          const formData = new FormData(event.target)
+          fetch(SERVICE_ENDPOINT, {
+            method: 'POST',
+            body: JSON.stringify(
+              formData.getAll('users')
+            )
+          })
+        })
+    </script>
+</body>
+</html>
