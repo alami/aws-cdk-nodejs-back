@@ -1,105 +1,80 @@
-## Task 8 (Integration with SQL Database)
-### Task 8.1
-This Pull Request maked special for task 8.1
-### https://github.com/alami/nodejs-aws-cart-api/pull/1
-#### Could you check it from this PR link
-1.	https://github.com/alami/nodejs-aws-cart-api.git forked from https://github.com/rolling-scopes-school/nodejs-aws-cart-api
-2.	**initialize [alami-lamda-integration-SQL](alami-lamda-integration-SQL)**
-3.	Deploy your code to AWS Lambda
-https://github.com/alami/nodejs-aws-cart-api/pull/1
+## Tasks 10. Backend For Frontend
+### Task 10.1
 
-### Task 8.2
+    Create a new service called bff-service at the same level as Product Service and Import Service. The backend project structure should look like this:
+        backend-repository
+            product-service
+            import-service
+            bff-service
 
-Use AWS Console to create a database instance in RDS with PostgreSQL
-#### "alami-postgres-instance"
-and **"security group"**  with default rule **"Inbound group":  
-"All traffic" - "myIP"**
+    Create an application in this folder, that listens for all requests and redirects those requests to the appropriate services based on variables provided by the .env file.
 
-Connect to database instance via a tool called **DataGrip**
-Create the following tables:
-<pre>
+    Here's the workflow example that BFF Service should support:
 
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+    Make requests to BFF Service with URL in the following format: {bff-service-url}/{recipient-service-name}?var1=someValue
+        {bff-service-url} - for example, http://localhost:3000
+        {recipient-service-name} - "cart" or "product" (you can use any other mapping of your choice)
+        ?var1=someValue - query string
 
-create type CART_STATUS AS ENUM ('OPEN', 'ORDERED');
-create table carts (
-    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    user_id uuid DEFAULT uuid_generate_v4() not null,
-    created_at DATE NOT NULL,
-    updated_at DATE NOT NULL,
-    status CART_STATUS NOT NULL
-);
+    Get recipientURL from the env variables using {recipient-service-name} as a key
 
-create table cart_items (
-    product_id uuid DEFAULT uuid_generate_v4() NOT NULL,
-    count integer,
-    cart_id UUID NOT NULL,
-    foreign key (cart_id) references carts (id)
-);
-</pre>
+    Get request method (GET, POST, etc.)
 
-SQL script to fill tables with test examples. 
-Store it in your Github repository. 
-Execute it for your DB to fill data.
-<pre>
-INSERT INTO carts (user_id, created_at, updated_at, status)
-VALUES
-(uuid_generate_v4(), '2023-07-10', '2023-07-10', 'OPEN'),
-(uuid_generate_v4(), '2023-07-11', '2023-07-11', 'ORDERED'),
-(uuid_generate_v4(), '2023-07-12', '2023-07-12', 'OPEN');
+    Make a new request to the needed service using the appropriate method and recipientURL
 
-INSERT INTO cart_items (product_id, count, cart_id)
-VALUES
-(uuid_generate_v4(), 2, (SELECT id FROM carts WHERE status='OPEN' LIMIT 1)),
-(uuid_generate_v4(), 1, (SELECT id FROM carts WHERE status='ORDERED' LIMIT 1)),
-(uuid_generate_v4(), 3, (SELECT id FROM carts WHERE created_at='2023-07-12' LIMIT 1));
-</pre>
-### Task 8.3
+    BFF Service should return the result of the recipient’s request
 
-    Update source code in the application to use PostgreSQL instead of memory storage.
+    If BFF Service cannot find recipientURL by the {recipient-service-name}, return a "Cannot process request" error message with status 502.
+    BFF Service should return the same status code and error message that the recipient service returns to the BFF Service in case of any error on the recipient service side.
 
-    You can make integration by using Typeorm.
-    Or you can use a simpler library such as pg.
+### Task 10.2
 
-    Integrate with RDS
-    Extend your AWS CDK Stack file with credentials to your database instance and pass it to lambda’s environment variables section.
+    Deploy BFF Service with Elastic Beanstalk.
 
-Task 8.4
+    Application name must follow the following convention {yours_github_account_login}-bff-api
+    Use the --cname option {yours_github_account_login}-bff-api-{environment_name}
+    Use the --single option
 
-    Commit all your work to separate branch (e.g. task-8 from the latest master) in your new repository.
+    BFF Service should work only with requests from the Product Service and Cart Service.
+    All Product Service and Cart Service methods should work correctly if requested via BFF Service
+
+### Task 10.3
+
+    Commit all your work to separate branch (e.g. task-10 from the latest master) in your own repository.
     Create a pull request to the master branch.
     Submit link to the pull request to Crosscheck page in RS App.
 
-Evaluation criteria (70 points for covering all criteria)
+Evaluation criteria (80 points for covering all criteria)
 
-Reviewers should verify the lambda functions by invoking them through provided URLs.
+Provide your reviewers with the following information:
 
-    Task 8.1 is implemented
-    Task 8.2 is implemented
-    Task 8.3 is implemented lambda links are provided and cart's data is stored in DB
+    link to the repo
+    Product Service API URL
+    Cart Service API URL
+    BFF Service API URL
+    example of how to call createProduct lambda with all needed information: URL, payload, headers, etc.
+    example how to call Product Service and Cart Service via BFF Service URL
 
-Additional (optional) tasks
+    A working and correct application should be in the bff-service folder. Reviewer can start this application locally with any valid configuration in the .env file and this application should works as described in the Task 10.1
+    The BFF Service should be deployed with Elastic Beanstalk. The BFF Service call should be redirected to the appropriate service : Product Service or Cart Service. The response from the BFF Service should be the same as if Product Service or Cart Service services were called directly.
 
-    +20 (All languages) - Create orders table and integrated with it Order model:
+Application Functionality (MUST HAVE)
 
-orders:
-id - uuid
-user_id - uuid
-cart_id - uuid (Foreign key from carts.id)
-payment - JSON
-delivery - JSON
-comments - text
-status - ENUM or text
-total - number
+By this point your application must be able to do:
 
-Set status to 'ORDERED' after checkout instead of cart deletion.
+    Products representation on Home page should be based on Product Service API.
+    Products are coming from Product DB.
+    Product images are not randomly generated on client side. Product image, same as another product model information should be stored on BE side in Product DB.
+    Products might be created through CSV product file import from client side.
+    Cart might be created with appropriate product set.
+    Auth logic should be in place
 
-    +4 (All languages) - Create users table and integrate with it
-    +3 (All languages) - Transaction based creation of checkout
-    +3 (All languages) - Integrate Cart service with FE repository
+### Additional (optional) tasks
 
-Penalties
-
-    -50 - Serverless Framework used to create and deploy infrastructure
-
-Description Template for PRs
+    +20 - Add a cache at the BFF Service level for a request to the getProductsList lambda function of the Product Service. The cache should expire in 2 minutes.
+    How to test:
+        Get products list
+        Create new product
+        Get products list - result shouldn’t have new product
+        Wait more than 2 minutes
+        Get products list - result should have new product
