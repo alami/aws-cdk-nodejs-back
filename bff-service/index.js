@@ -1,3 +1,4 @@
+
 const express = require('express')
 require('dotenv').config()
 const axios = require('axios').default
@@ -5,7 +6,7 @@ const axios = require('axios').default
 const app = express()
 const PORT = process.env.PORT || 3001
 
-app.use(express.join())
+app.use(express.json())
 
 app.all('/*',(req,res) => {
     console.log('originalUrl', req.originalUrl)

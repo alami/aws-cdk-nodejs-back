@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "app-dev": "nodemon index.js",
-    "app-dev-1": "nodemon /test-api/api-1.js",
-    "app-dev-2": "nodemon /test-api/api-2.js",
+    "dev": "nodemon index.js",
+    "dev-1": "nodemon /test-api/api-1.js",
+    "dev-2": "nodemon /test-api/api-2.js",
     "eb-init": "eb init --platform node.js --region us-east-1",
-    "eb-create": "eb create development --single --cname shuspes-bff-develop",
+    "eb-create": "eb create development --single --cname alami-bff-develop",
     "eb-terminate": "eb terminate",
     "start": "node index-response-modifier.js",
     "set": "eb setenv `cat .env.eb | sed '/^#/ d' | sed '/^$/ d'`"

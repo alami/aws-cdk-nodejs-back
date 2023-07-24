@@ -1,13 +1,13 @@
 ## Tasks 10. Backend For Frontend
 ### Task 10.1
 
-    Create a new service called bff-service at the same level as Product Service and Import Service. The backend project structure should look like this:
+    Created a new service called bff-service at the same level as Product Service and Import Service. The backend project structure should look like this:
         backend-repository
             product-service
             import-service
             bff-service
 
-    Create an application in this folder, that listens for all requests and redirects those requests to the appropriate services based on variables provided by the .env file.
+    Created an application in this folder, that listens for all requests and redirects those requests to the appropriate services based on variables provided by the .env file.
 
     Here's the workflow example that BFF Service should support:
 
@@ -37,6 +37,8 @@
 
     BFF Service should work only with requests from the Product Service and Cart Service.
     All Product Service and Cart Service methods should work correctly if requested via BFF Service
+
+Link: http://alami-bff-develop.us-east-1.elasticbeanstalk.com/
 
 ### Task 10.3
 
