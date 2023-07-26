@@ -38,7 +38,7 @@
     BFF Service should work only with requests from the Product Service and Cart Service.
     All Product Service and Cart Service methods should work correctly if requested via BFF Service
 
-Link: http://alami-bff-develop.us-east-1.elasticbeanstalk.com/
+Link: http://alami-bff-service.eba-mwfjmyj4.us-east-1.elasticbeanstalk.com/
 
 ### Task 10.3
 
